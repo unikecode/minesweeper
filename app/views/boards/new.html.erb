@@ -1,0 +1,20 @@
+<h2>Generate Minesweeper Board</h2>
+
+<%= form_for @board, url: boards_path do |form| %>
+  <%= form.label :email, 'Email address:' %>
+  <%= form.email_field :email %>
+
+  <%= form.label :width, 'Board Width:' %>
+  <%= form.number_field :width %>
+
+  <%= form.label :height, 'Board Height:' %>
+  <%= form.number_field :height %>
+
+  <%= form.label :mines_count, 'Number of Mines:' %>
+  <%= form.number_field :mines_count %>
+
+  <%= form.label :name, 'Board Name:' %>
+  <%= form.text_field :name %>
+
+  <%= form.submit 'Generate Board' %>
+<% end %>
