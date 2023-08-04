@@ -5,7 +5,6 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
-    binding.pry
     if @board.save
       redirect_to board_path(@board)
     else
