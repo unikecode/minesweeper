@@ -1,0 +1,134 @@
+
+.center {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #f9f8f8;
+  padding: 48px;
+  border-radius: 7px;
+  border: 1px solid #e9e9e9;
+ }
+ 
+ .general-btn {
+  width: 100%;
+  margin-top: 2%;
+}
+
+.gen-board {
+  background-color: #e2e1e1;
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #979395;
+}
+
+.custom-input {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+/* Custom styles for buttons */
+.custom-button {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  a {
+    color: #17adbc;
+  }
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.custom-button.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.custom-button.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+
+.recent-board-heading {
+  text-decoration: underline;
+  padding: 10px;
+  margin-top: 18px;
+}
+.recent-boards-list {
+  background-color: #f0f0f0;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+.view_all_boards {
+  background-color: #d5d5d5;
+  text-align: center;
+  padding: 6px 10%;  
+  a {
+    color: #17adbc;
+  }
+}
+.recent-board {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.recent-board h5.card-title {
+  margin-bottom: 10px;
+}
+
+.recent-board p.card-text {
+  font-size: 14px;
+}
+
+.board-container {
+  margin: auto;
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  padding: 10px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.board-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.board-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  height: 38px;
+  margin: 0px;
+}
+.no-boards {
+  text-align: center;
+  font-style: italic;
+  padding: 100px;
+  background-color: #f4f4f4;
+  width: 50%;
+  margin: auto;
+}

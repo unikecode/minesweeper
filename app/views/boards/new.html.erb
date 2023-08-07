@@ -1,20 +1,40 @@
-<h2>Generate Minesweeper Board</h2>
+<p class="h1 gen-board">Generate Minesweeper Board</p>
+<div class="center">
+  <%= form_for @board, url: boards_path, data: { parsley_validate: true } do |form| %>
+    <div class="form-group">
+      <%= form.label :email, 'Email address:', class: "form-label font-weight-bold" %>
+      <%= form.email_field :email, class: "form-control", required: true, data: { parsley_type: "email" } %>
+    </div>
 
-<%= form_for @board, url: boards_path do |form| %>
-  <%= form.label :email, 'Email address:' %>
-  <%= form.email_field :email %>
+    <div class="form-group">
+      <%= form.label :width, 'Board Width:', class: "form-label font-weight-bold" %>
+      <%= form.number_field :width, class: "form-control", required: true, data: { parsley_type: "integer" } %>
+    </div>
 
-  <%= form.label :width, 'Board Width:' %>
-  <%= form.number_field :width %>
+    <div class="form-group">
+      <%= form.label :height, 'Board Height:', class: "form-label font-weight-bold" %>
+      <%= form.number_field :height, class: "form-control", required: true, data: { parsley_type: "integer" } %>
+    </div>
 
-  <%= form.label :height, 'Board Height:' %>
-  <%= form.number_field :height %>
+    <div class="form-group">
+      <%= form.label :mines_count, 'Number of Mines:', class: "form-label font-weight-bold" %>
+      <%= form.number_field :mines_count, class: "form-control", required: true, data: { parsley_type: "integer" } %>
+    </div>
 
-  <%= form.label :mines_count, 'Number of Mines:' %>
-  <%= form.number_field :mines_count %>
+    <div class="form-group">
+      <%= form.label :name, 'Board Name:', class: "form-label font-weight-bold" %>
+      <%= form.text_field :name, class: "form-control", required: true %>
+    </div>
+    
+    <%= form.submit 'Generate Board', class: "btn btn-info general-btn" %>
+  <% end %>
+</div>
 
-  <%= form.label :name, 'Board Name:' %>
-  <%= form.text_field :name %>
 
-  <%= form.submit 'Generate Board' %>
+<h2 class="card-title text-center recent-board-heading">Recent Minesweeper Boards</h2>
+<% if @recent_boards&.any? %>
+  <%= render partial: 'recent_boards', locals: { recent_boards: @recent_boards } %>
+  <div class="view_all_boards" ><%= link_to "View All Generated Boards", boards_path %></div>
+<% else %>
+  <div class="no-boards"> No boards have been generated yet. </div>
 <% end %>
