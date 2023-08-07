@@ -1,10 +1,17 @@
 class BoardsController < ApplicationController
+  def index
+    @boards = Board.order(created_at: :desc)
+  end
+
   def new
     @board = Board.new
+    @recent_boards = Board.order(created_at: :desc).limit(10)
   end
 
   def create
-    @board = Board.new(board_params)
+    @board = Board.new(email: board_params[:email], name: board_params[:name])
+    @board.cells = MinesweeperBoard.generate_board(board_params[:width].to_i, board_params[:height].to_i, board_params[:mines_count].to_i)
+
     if @board.save
       redirect_to board_path(@board)
     else
@@ -19,6 +26,6 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:email, :width, :height, :mines_count, :name)
+    params.require(:board).permit(:name, :email, :width, :height, :mines_count).transform_keys(&:to_sym)
   end
 end
