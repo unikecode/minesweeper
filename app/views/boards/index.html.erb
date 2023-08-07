@@ -1,1 +1,31 @@
-<%= render partial: 'recent_boards', locals: { recent_boards: @boards } %>
+<h2 class="card-title text-center all-board-heading">All Minesweeper Boards</h2>
+<%= form_tag(boards_path, method: :get, class: 'form-inline mb-3') do %>
+  <div class="input-group", id="search-bar">
+    <%= text_field_tag(:search, params[:search], class: 'form-control', placeholder: 'Search boards by name') %>
+    <div class="input-group-append search-btn">
+      <%= submit_tag('Search', class: 'btn btn-outline-primary') %>
+    </div>
+  </div>
+<% end %>
+<table class="table table-striped index-board">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Board Name</th>
+      <th scope="col">Creator Email</th>
+      <th scope="col">Creation Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @boards.each_with_index do |board, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %> </th>
+        <td><%= link_to board.name, board_path(board) %></td>
+        <td><%= board.email %></td>
+        <td><%= board.created_at.strftime('%b %e, %Y %l:%M %p') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div><%= paginate @boards %></div>
+

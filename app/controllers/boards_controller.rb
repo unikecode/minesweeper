@@ -1,6 +1,8 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.order(created_at: :desc)
+    @boards = params[:search] ? Board.search_by_name(params[:search]) : Board.order(created_at: :desc)
+    page_number = params[:page].to_i.positive? ? params[:page] : 1
+    @boards = @boards.page(page_number).per(5)
   end
 
   def new

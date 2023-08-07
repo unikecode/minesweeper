@@ -1,5 +1,8 @@
 <p class="h1 gen-board">Generate Minesweeper Board</p>
 <div class="center">
+  <% if @board.errors.any? %>
+    <%= render partial: 'board_errors' %>
+  <% end %>
   <%= form_for @board, url: boards_path, data: { parsley_validate: true } do |form| %>
     <div class="form-group">
       <%= form.label :email, 'Email address:', class: "form-label font-weight-bold" %>
@@ -8,17 +11,19 @@
 
     <div class="form-group">
       <%= form.label :width, 'Board Width:', class: "form-label font-weight-bold" %>
-      <%= form.number_field :width, class: "form-control", required: true, data: { parsley_type: "integer" } %>
+      <%= form.number_field :width, class: "form-control width", required: true, data: { parsley_type: "integer" } %>
     </div>
 
     <div class="form-group">
       <%= form.label :height, 'Board Height:', class: "form-label font-weight-bold" %>
-      <%= form.number_field :height, class: "form-control", required: true, data: { parsley_type: "integer" } %>
+      <%= form.number_field :height, class: "form-control height", required: true, data: { parsley_type: "integer" } %>
     </div>
 
     <div class="form-group">
       <%= form.label :mines_count, 'Number of Mines:', class: "form-label font-weight-bold" %>
-      <%= form.number_field :mines_count, class: "form-control", required: true, data: { parsley_type: "integer" } %>
+      <%= form.number_field :mines_count, class: "form-control mines", required: true, data: { parsley_type: "integer" } %>
+      <p class="hidden mines-error"> Number of mines can't be greater than the size of board.</p>
+      <p class="hidden mines-disable"> Please fill height and width first in order to add mines.</p>
     </div>
 
     <div class="form-group">
@@ -26,15 +31,22 @@
       <%= form.text_field :name, class: "form-control", required: true %>
     </div>
     
-    <%= form.submit 'Generate Board', class: "btn btn-info general-btn" %>
+    <% unless @board.errors.any? %>
+      <%= form.submit 'Generate Board', class: "btn btn-info general-btn submit-btn" %>
+    <% end %>
+    <% if @board.errors.any? %>
+        <%= link_to 'Back', root_path, class: 'btn btn-info general-btn' %>
+    <% end %>
   <% end %>
 </div>
 
 
-<h2 class="card-title text-center recent-board-heading">Recent Minesweeper Boards</h2>
-<% if @recent_boards&.any? %>
-  <%= render partial: 'recent_boards', locals: { recent_boards: @recent_boards } %>
-  <div class="view_all_boards" ><%= link_to "View All Generated Boards", boards_path %></div>
-<% else %>
-  <div class="no-boards"> No boards have been generated yet. </div>
+<% unless @board.errors.any?%>
+  <h2 class="card-title text-center recent-board-heading">Recent Minesweeper Boards</h2>
+  <% if @recent_boards&.any? %>
+    <%= render partial: 'recent_boards', locals: { recent_boards: @recent_boards } %>
+    <div class="view_all_boards" ><%= link_to "View All Generated Boards", boards_path %></div>
+  <% else %>
+    <div class="no-boards"> No boards have been generated yet. </div>
+  <% end %>
 <% end %>

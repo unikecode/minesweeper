@@ -1,0 +1,5 @@
+<%  @board.errors.messages.each do |message| %>
+  <li class="mines-error"> 
+    <%= "#{message[0]} #{message[1][0]}" %>
+  </li>
+<% end %>

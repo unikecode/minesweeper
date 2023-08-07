@@ -61,16 +61,20 @@
   background-color: #007bff;
   color: #fff;
 }
-
 .btn-primary {
   margin-top: 10px;
 }
-
 .recent-board-heading {
   text-decoration: underline;
   padding: 10px;
   margin-top: 18px;
 }
+.all-board-heading {
+  background: black;
+  color: white;
+  padding: 1%;
+}
+
 .recent-boards-list {
   background-color: #f0f0f0;
   padding: 20px;
@@ -91,7 +95,6 @@
   border-radius: 5px;
   padding: 10px;
 }
-
 .recent-board h5.card-title {
   margin-bottom: 10px;
 }
@@ -99,7 +102,6 @@
 .recent-board p.card-text {
   font-size: 14px;
 }
-
 .board-container {
   margin: auto;
   max-height: 600px;
@@ -131,4 +133,63 @@
   background-color: #f4f4f4;
   width: 50%;
   margin: auto;
+}
+
+.mines-error, .mines-disable {
+  color: red
+}
+.board-details {
+  text-align: center;
+  padding: 20px;
+  background-color: #ececec;
+}
+.index-board {
+  td {
+    a {
+      color: #17adbc;
+    }
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  padding: 6px 10px;
+  margin: 0 3px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.pagination .current {
+  padding: 4px 10px;
+  margin: 0 3px;
+  background-color: #17adbc;
+  color: #fff;
+  border: 1px solid #17adbc;
+  border-radius: 4px;
+}
+
+.pagination .prev,
+.pagination .next {
+  margin: 0 3px;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.search-btn {
+  .btn {
+    color: white;
+    border: 1px solid #17adbc;
+  }
+  background-color: #17adbc;
+}
+#search-bar {
+  width: 30%;
+  margin-left: 68%;
 }

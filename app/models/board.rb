@@ -7,4 +7,6 @@ class Board < ApplicationRecord
   validates :name, presence: true, length: { maximum: 100 }
 
   serialize :cells, Array
+
+  scope :search_by_name, -> (query) { where('name LIKE ?', "%#{ query }%") }
 end

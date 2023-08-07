@@ -1,15 +1,17 @@
 
 <div class="container">
   <% if @board.present? %>
-    <h1 class="mb-4">Board Details</h1>
+    <h1 class="mb-4 board-details">Board Details</h1>
 
     <div class="card bg-light mb-4">
       <div class="card-body">
-        <h5 class="card-title">Name: <%= @board.name %></h5>
-        <h5 class="card-title">Email: <%= @board.email %></h5>
+        <span class="card-title">Board Name:</span>
+        <span> <%= @board.name %> </span>
+        </br>
+        <span class="card-title">Creator Email:</span>
+        <span> <%= @board.email %> </span>
       </div>
     </div>
-
     <div class="board-container">
       <div class="minesweeper-board">
         <% @board.cells.each do |row| %>
