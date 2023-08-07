@@ -1,4 +1,3 @@
-# app/models/board.rb
 class Board < ApplicationRecord
   attr_accessor :width, :height, :mines_count
 
