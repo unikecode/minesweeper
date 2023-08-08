@@ -15,5 +15,4 @@ test:
   database: minesweeper_database_test
 
 production:
-  <<: *default
-  database: minesweeper_database_prod
+  url: <%= ENV["DATABASE_URL"] %>
