@@ -1,5 +1,5 @@
 
-$(document).on 'focusout', '.mines', (e) ->
+$(document).on 'keyup', '.mines', (e) ->
   max_mines = parseInt($('.width').val()) * parseInt($('.height').val())
   if parseInt($('.mines').val()) > max_mines
     $('.mines-error').removeClass('hidden')

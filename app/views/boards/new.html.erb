@@ -1,4 +1,9 @@
 <p class="h1 gen-board">Generate Minesweeper Board</p>
+<% if flash[:alert].present? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 <div class="center">
   <% if @board.errors.any? %>
     <%= render partial: 'board_errors' %>

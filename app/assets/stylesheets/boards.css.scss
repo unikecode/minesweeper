@@ -1,3 +1,4 @@
+$white: #fff;
 
 .center {
   width: 50%;
@@ -18,6 +19,7 @@
   text-align: center;
   padding: 15px;
   border: 1px solid #979395;
+  margin-bottom: 0;
 }
 
 .custom-input {
@@ -27,7 +29,6 @@
   padding: 8px;
 }
 
-/* Custom styles for buttons */
 .custom-button {
   border-radius: 5px;
   padding: 10px 20px;
@@ -54,21 +55,24 @@
 
 .custom-button.btn-secondary {
   background-color: #6c757d;
-  color: #fff;
+  color: $white;
 }
 
 .custom-button.btn-primary {
   background-color: #007bff;
-  color: #fff;
+  color: $white;
 }
+
 .btn-primary {
   margin-top: 10px;
 }
+
 .recent-board-heading {
   text-decoration: underline;
   padding: 10px;
   margin-top: 18px;
 }
+
 .all-board-heading {
   background: black;
   color: white;
@@ -82,6 +86,7 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
 }
+
 .view_all_boards {
   background-color: #d5d5d5;
   text-align: center;
@@ -90,11 +95,13 @@
     color: #17adbc;
   }
 }
+
 .recent-board {
   background-color: #f0f0f0;
   border-radius: 5px;
   padding: 10px;
 }
+
 .recent-board h5.card-title {
   margin-bottom: 10px;
 }
@@ -102,6 +109,7 @@
 .recent-board p.card-text {
   font-size: 14px;
 }
+
 .board-container {
   margin: auto;
   max-height: 600px;
@@ -126,6 +134,7 @@
   height: 38px;
   margin: 0px;
 }
+
 .no-boards {
   text-align: center;
   font-style: italic;
@@ -138,11 +147,13 @@
 .mines-error, .mines-disable {
   color: red
 }
+
 .board-details {
   text-align: center;
   padding: 20px;
   background-color: #ececec;
 }
+
 .index-board {
   td {
     a {
@@ -150,6 +161,7 @@
     }
   }
 }
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -162,14 +174,15 @@
   border: 1px solid #ccc;
   text-decoration: none;
   color: #333;
-  background-color: #fff;
+  background-color: $white;
   border-radius: 4px;
 }
+
 .pagination .current {
   padding: 4px 10px;
   margin: 0 3px;
   background-color: #17adbc;
-  color: #fff;
+  color: $white;
   border: 1px solid #17adbc;
   border-radius: 4px;
 }
@@ -179,9 +192,10 @@
   margin: 0 3px;
   text-decoration: none;
   color: #333;
-  background-color: #fff;
+  background-color: $white;
   border-radius: 4px;
 }
+
 .search-btn {
   .btn {
     color: white;
@@ -189,6 +203,7 @@
   }
   background-color: #17adbc;
 }
+
 #search-bar {
   width: 30%;
   margin-left: 68%;

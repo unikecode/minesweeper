@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_action :validate_mines, only: :create
+
   def index
     @boards = params[:search] ? Board.search_by_name(params[:search]) : Board.order(created_at: :desc)
     page_number = params[:page].to_i.positive? ? params[:page] : 1
@@ -28,6 +30,13 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name, :email, :width, :height, :mines_count).transform_keys(&:to_sym)
+    params.require(:board).permit(:name, :email, :width, :height, :mines_count)
   end
+
+  def validate_mines
+    if board_params[:mines_count].to_i > board_params[:height].to_i * board_params[:width].to_i
+      flash[:alert] = 'Number of Mines can not be greater than the size of board.'
+      redirect_back(fallback_location: root_path)
+    end
+  end 
 end
