@@ -16,17 +16,17 @@
 
     <div class="form-group">
       <%= form.label :width, 'Board Width:', class: "form-label font-weight-bold" %>
-      <%= form.number_field :width, class: "form-control width", required: true, data: { parsley_type: "integer" } %>
+      <%= form.number_field :width, class: "form-control width", required: true, data: { parsley_type: "integer" }, min: 0 %>
     </div>
 
     <div class="form-group">
       <%= form.label :height, 'Board Height:', class: "form-label font-weight-bold" %>
-      <%= form.number_field :height, class: "form-control height", required: true, data: { parsley_type: "integer" } %>
+      <%= form.number_field :height, class: "form-control height", required: true, data: { parsley_type: "integer" }, min: 0 %>
     </div>
 
     <div class="form-group">
       <%= form.label :mines_count, 'Number of Mines:', class: "form-label font-weight-bold" %>
-      <%= form.number_field :mines_count, class: "form-control mines", required: true, data: { parsley_type: "integer" } %>
+      <%= form.number_field :mines_count, class: "form-control mines", required: true, data: { parsley_type: "integer" }, min: 0 %>
       <p class="hidden mines-error"> Number of mines can't be greater than the size of board.</p>
       <p class="hidden mines-disable"> Please fill height and width first in order to add mines.</p>
     </div>
