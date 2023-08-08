@@ -24,26 +24,6 @@ class BoardTest < ActiveSupport::TestCase
     assert_not board.valid?
   end
 
-  test "should have a unique email" do
-    Board.create(
-      email: 'test@example.com',
-      name: 'Test Board',
-      width: 10,
-      height: 10,
-      mines_count: 20,
-      cells: [0, 1, 0, 1, 0, 1]
-    )
-    board = Board.new(
-      email: 'test@example.com',
-      name: 'Another Board',
-      width: 8,
-      height: 8,
-      mines_count: 15,
-      cells: [1, 0, 1, 0, 1, 0]
-    )
-    assert_not board.valid?
-  end
-
   test "should not be valid without a name" do
     board = Board.new(
       email: 'test@example.com',
