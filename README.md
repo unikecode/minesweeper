@@ -52,11 +52,3 @@ The application ensures that the number of mines specified by the user is not gr
 ### Styling
 The user interface of the application has been enhanced with custom CSS styles to make it more visually appealing. The board cells are styled to fit the emojis properly, and the overall layout is designed to be responsive and user-friendly.
 
-### Additional Features
-The application has been designed to meet the requirements of the JD, but additional features can be added to enhance the user experience. Some ideas for further improvements include:
-
-Adding pagination to the list of all generated boards to improve performance when there are a large number of boards.
-Implementing a search and filter functionality to allow users to find specific boards based on criteria such as board name or email.
-Enhancing the board generation algorithm to support custom difficulty levels and customizable mine density.
-Contributing
-We welcome contributions from the community! If you find any bugs or have ideas for new features, please feel free to open an issue or submit a pull request.
