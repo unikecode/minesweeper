@@ -4,15 +4,19 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   password: postgres
-  host: localhost
+  
 
 development:
   <<: *default
+  host: localhost
   database: minesweeper_database_dev
+
 
 test:
   <<: *default
+  host: localhost
   database: minesweeper_database_test
 
 production:
   url: <%= ENV["DATABASE_URL"] %>
+  prepared_statements: false
