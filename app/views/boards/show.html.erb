@@ -1,0 +1,35 @@
+
+<div class="container">
+  <% if @board.present? %>
+    <h1 class="mb-4 board-details">Board Details</h1>
+
+    <div class="card bg-light mb-4">
+      <div class="card-body">
+        <span class="card-title">Board Name:</span>
+        <span> <%= @board.name %> </span>
+        </br>
+        <span class="card-title">Creator Email:</span>
+        <span> <%= @board.email %> </span>
+      </div>
+    </div>
+    <div class="board-container">
+      <div class="minesweeper-board">
+        <% @board.cells.each do |row| %>
+          <div class="board-row">
+            <% row.each do |cell| %>
+              <div class="board-cell">
+                <%= cell == :x ? '💣' : '◻️' %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <p>Board not found.</p>
+  <% end %>
+
+  <%= link_to 'Back', root_path, class: 'btn btn-info general-btn' %>
+</div>
+
+
